@@ -1,3 +1,15 @@
+<!--
+반응형 이미지
+이미지의 해상도(가로x세로 픽셀수)가 장치 디스플레이보다 큰 경우
+제대로 보이지 않는 상황 발생
+전체 이미지를보기 위해 스크롤바로 이리저리 움직여야 함
+
+이런 경우 이미지의 너비를 유동적으로 설정하면
+장치의 디스플레이 해상도에 맞춰 이미지를 출력함
+반응형 이미지로 설정하면 디스플레이 해상도보다 큰 이미지인 경우
+너비를 100%로 설정해서 출력하고 해상도 보다 작으면
+원래 이미지 크기로 출력함
+-->
 <!doctype html>
 <html lang="ko">
   <head>
@@ -30,8 +42,12 @@
                         <div class="modal-header">
                             <h2 class="modal-title" id="loginModalLabel">
                                 <b>로그인</b></h2>
-                            <button type="button" data-dismiss="modal"
-                                    class = "close">&times;</button>
+                            <button type="button" class="btn btn-close"
+                                                         data-bs-dismiss="modal"
+                                                         aria-label="Close">
+                                닫기
+                                <!--<span aria-hidden="true">&times;</span>-->
+                            </button>
                         </div>
                         <div class="modal-body">
                             <form name="loginfrm"
@@ -85,7 +101,7 @@
 
         <nav class="nav-bar navbar-expand navbar-dark bg-dark">
             <ul class="navbar-nav nav-fill w-100 ">
-                <li class="nav-item"><a href="/index.html" class="nav-link">프로젝트소개</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">프로젝트소개</a></li>
                 <li class="nav-item"><a href="/join/agree.html" class="nav-link">회원가입</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">게시판</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">자료실</a></li>
@@ -93,56 +109,85 @@
                 <li class="nav-item"><a href="#" class="nav-link">관리자</a></li>
             </ul>
         </nav>
-        <div class="main">
-            <div>
-                <h2><i class="bi bi-people-fill"></i><b>회원가입 완료</b></h2>
-                <hr>
-            </div>
-            <nav>
-                <ul class="breadcrumb">
-                    <li class="breadcrumb-item active disabled">
-                        <button type="button" disabled class="btn btn-success">이용약관</button></li>
-                    <li class="breadcrumb-item active">
-                        <button type="button" disabled class="btn btn-success">가입인증</button></li>
-                    <li class="breadcrumb-item">
-                        <button type="button" disabled class="btn btn-success">회원정보입력
-                        </button></li>
-                    <li class="breadcrumb-item">
-                        <button type="button" disabled class="btn btn-success">가입완료
-                        </button></li>
-                </ul>
-
-            </nav>
+        <div class="main" class="row">
+            <h1><i class="bi bi-chat-fill"></i><b>자유 게시판</b></h1>
             <hr>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="board col-4">
+                    <h3><i class="bi bi-plus-circle-fill"></i><b>새글 쓰기</b></h3>
+                </div>
+                <div class="board col-4 text-right">
+                    <button type="button" id="golist" name="golist">목록으로</button>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 card card-body bg-light">
+                    <form id="boardfrm" class="boardfrm">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group row">
+                                <label class="col-2 col-form-label text-danger
+                                              text-right"
+                                       for="title">제목</label>
+                                <input type="text" name="title" id="title"
+                                       class="border-danger form-control col-8">
+                                </div>
 
-            <div class="card card-body bg-light">
-                <h3>회원가입을 축하합니다!!</h3>
-                <p>게시판 글작성, 쇼핑몰 이용등의 일부 서비스는
-                    실명확인 후 이용하실 수 있습니다.<br>
-                    실명확인 후에도 가입하신 아이디는 변경할 수 없습니다.
-                </p>
-                <p>
-                    회원가입 이후 아이디와 비밀번호로 일반회원으로
-                    로그인하셔서 추가 인적사항등을 등록해주시길 바랍니다.
-                    <br>
-                    Lorem Ipsom과 함께 즐거운 시간 보내십시오.
-                </p>
+                                <div class="form-group row">
+                                <label class="col-2 col-form-label text-danger
+                                              text-right"
+                                       for="writer">작성자</label>
+                                <input type="text" name="writer" id="writer"
+                                       class="border-danger form-control col-8
+                                              bg-light">
+                                </div>
 
+                                <div class="form-group row">
+                                <label class="col-2 col-form-label text-danger
+                                              text-right"
+                                       for="content">본문내용</label>
+                                <input type="text" name="content" id="content"
+                                       class="border-danger form-control col-8"
+                                       style="height: 500px;">
+                                </div>
 
+                                <div class="form-group row">
+                                    <label class="col-2 col-form-label text-danger text-right"
+                                       for="capcha">자동<br>입력방지</label>
+                                    <img id="capcha" src="/img/google_recaptcha.gif"
+                                         width="40%">
+                                </div>
 
+                                <hr>
+
+                                <div class="form-group row">
+                                        <div class="col text-center">
+                                            <button type="button" id="submit" name="submit" class="btn btn-primary text-right">입력완료</button>
+                                            <button type="button" id="submit" name="submit" class="btn btn-danger text-right">취소하기</button>
+                                        </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="col-2"></div>
             </div>
 
-            <div class="text-center">
-                <button type="button" id="go2index"
-                        class="btn btn-success"><i class="bi bi-home"></i>메인으로 이동</button>
-            </div>
-            <footer class="row">
+
+
+        </div>
+        <footer class="row">
                 <h6 class="col bg-light text-right">Copyright &copy; Lorem Ipsum 2020. All right Reserved. Created by Bootstrap4</h6>
         </footer>
-        </div>
-         <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    </div>
+            <!-- jQuery and Bootstrap Bundle (includes Popper) -->
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-        </div>
-    </body>
+
+  </body>
 </html>

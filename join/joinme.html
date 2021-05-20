@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <title>SemiProjectV2</title>
+    </head>
+    <body>
+        <div class="container">
+        <header class="row">
+            <h1 class="col">Lorem Ipsum</h1>
+
+            <div class="col text-right ">
+            <!-- Button trigger modal -->
+                <button type="button" class=" btn-danger" data-toggle="modal"   data-target="#loginModal">
+                로그인
+                </button>
+                <button type="button" class="btn-primary">회원가입</button>
+            </div>
+            <!-- Modal -->
+            <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="loginModalLabel">
+                                <b>로그인</b></h2>
+                            <button type="button" data-dismiss="modal"
+                                    class = "close">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form name="loginfrm"
+                                      id="loginfrm" method="post">
+                                <div class="form-group row text-danger">
+
+                                    <label class="col-form-label col-4 text-right" for="userid">
+                                    아이디</label>
+                                    <input type="text"
+                                           id="userid" name="userid"
+                                           class="form-control col-5
+                                                  border-danger">
+
+                                </div>
+
+                                <div class="form-group row text-danger">
+                                    <label class="col-form-label col-4 text-right" for="userid">
+                                    비밀번호</label>
+                                    <input type="text"
+                                           id="userid" name="userid"
+                                           class="form-control col-5
+                                                  border-danger">
+                                </div>
+
+                                <div class="form-group row text-warning">
+                                    <div class="col-4"></div>
+                                    <div class="form-check">
+                                        <input type="checkbox"
+                                               class="form-check-input">
+                                        <label class="form-check-label">
+                                            로그인 상태 유지</label>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer row">
+                            <div class="col-2"></div>
+                            <div class="col-">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">로그인</button>
+                                <button type="button" class="btn btn-warning ">아이디/비밀번호 찾기</button>
+                            </div>
+                            <div class="col-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="clearfix"></div>
+
+        <nav class="nav-bar navbar-expand navbar-dark bg-dark">
+            <ul class="navbar-nav nav-fill w-100 ">
+                <li class="nav-item"><a href="/index.html" class="nav-link">프로젝트소개</a></li>
+                <li class="nav-item"><a href="/join/agree.html" class="nav-link">회원가입</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">게시판</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">자료실</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">갤러리</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">관리자</a></li>
+            </ul>
+        </nav>
+        <div class="main">
+            <div>
+                <h2><i class="bi bi-people-fill"></i><b>회원가입</b></h2>
+                <hr>
+            </div>
+            <nav>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item active disabled">
+                        <button type="button" disabled class="btn btn-success">이용약관</button></li>
+                    <li class="breadcrumb-item active">
+                        <button type="button" disabled class="btn btn-success">가입인증</button></li>
+                    <li class="breadcrumb-item">
+                        <button type="button" disabled class="btn btn-success">회원정보입력
+                        </button></li>
+                    <li class="breadcrumb-item">
+                        <button type="button" disabled class="btn btn-light">가입완료
+                        </button></li>
+                </ul>
+
+            </nav>
+
+            <div><h3><b>회원정보 입력</b></h3></div>
+            <div><small>회원정보는 개인정보 취급방침에 따라 안전하게 보호되며, 회원님의 명백한 동의없이 공개 또는 제3자에게 제공되지 않습니다.</small></div>
+
+            <hr>
+
+            <div class="card card-body bg-light">
+                <h3>일반회원</h3>
+                <form id="checkfrm" name="chackfrm">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-danger
+                                              text-right"
+                                       for="name">이름</label>
+                                <input type="text" name="name" id="name"
+                                       class="border-danger form-control bg-light
+                                              col-2">
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-danger
+                                              text-right"
+                                       for="jumin1">주민등록번호</label>
+                                <input type="text" name="jumin1" id="jumin1"
+                                       class="border-danger form-control
+                                              col-2 bg-light">&nbsp;&#45;&nbsp;
+                                <input type="text" name="jumin2" id="jumin2"
+                                       class="border-danger form-control
+                                              col-2 bg-light">
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-danger
+                                              text-right"
+                                       for="uid">아이디</label>
+                                <input type="text" name="uid" id="uid"
+                                       class="border-danger form-control
+                                              col-3">
+                                <span class=col-6 >6~16 자의 영문 소문자, 숫자와 특수기호(_)만 사용할 수 있습니다.</span>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-danger
+                                              text-right"
+                                       for="upwd">비밀번호</label>
+                                <input type="text" name="upwd" id="upwd"
+                                       class="border-danger form-control
+                                              col-3">
+                                <span class="col-6">6~16 자의 영문 대소문자, 숫자 및 특수문자 사용할 수 있습니다.</span>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-danger
+                                              text-right"
+                                       for="pwdcheck">비밀번호 확인</label>
+                                <input type="text" name="pwdcheck" id="pwdcheck"
+                                       class="border-danger form-control
+                                              col-3">
+                                <span class="col-6">이전 항목에서 입력했던 비밀번호를 한번 더 입력하세요.</span>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-danger
+                                              text-right"
+                                       for="pcode1">우편번호</label>
+                                <input type="text" name="pcode1" id="jumin1"
+                                       class="border-danger form-control
+                                              col-1 bg-light" readonly>&nbsp;&#45;&nbsp;
+                                <input type="text" name="pcode2" id="jumin2"
+                                       class="border-danger form-control
+                                              col-1 bg-light" readonly>&nbsp;
+                                <button class="btn btn-dark" type="button"
+                                        data-toggle="modal" data-target="#zipcode"
+                                        id="pcodebtn" name="pcodebtn"><i class="bi bi-question-circle"></i>우편번호 찾기</button>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-danger
+                                              text-right"
+                                       for="addr1">주소</label>
+                                <input type="text" name="addr1" id="addr1"
+                                       class="border-danger form-control
+                                              col-4">&nbsp;
+                                <input type="text" name="addr2" id="addr2"
+                                       class="border-danger form-control
+                                              col-4">
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-danger
+                                              text-right"
+                                       for="eaddr1">전자우편 주소</label>
+                                <input type="text" name="eaddr1" id="eaddr1"
+                                       class="border-danger form-control
+                                              col-3">
+                                <div class="input-group-append"><span class="input-group-text border-danger">@</span></div>
+                                <input type="text" name="eaddr2" id="eaddr2"
+                                       class="border-danger form-control
+                                              col-3">&nbsp;
+                                <select class="border-danger rounded">
+                                    <option>선택하세요</option>
+                                </select>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-danger
+                                              text-right"
+                                       for="phone1">개인 연락처</label>
+                                <select class="border-danger rounded col-1">
+                                    <option>국번</option>
+                                </select>&nbsp;&#45;&nbsp;
+                                <input type="text" name="phone2" id="phone2"
+                                       class="border-danger form-control
+                                              col-1">&nbsp;&#45;&nbsp;
+                                <input type="text" name="phone3" id="phone3"
+                                       class="border-danger form-control
+                                              col-1">
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-danger
+                                              text-right"
+                                       for="phone1">자동 가입방지</label>
+                                <img style="width: 30%" src="/img/google_recaptcha.gif">
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </form>
+                </div>
+
+           <div class="modal" id="zipcode" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">우편번호 찾기</h3>
+                            <button type="button" data-dismiss="modal"
+                                    class = "close">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form name="zipfrm" id="zipfrm">
+                                <div class="form-group row justify-content-center">
+                                    <label class="col-form-label text-primary text-right" for="dong">
+                                        검색하실 주소의<br> 동이름을 입력하세요</label>&nbsp;&nbsp;
+                                     <input type="text" name="dong" id="dong"
+                                       class="border-primary form-control col-3">
+                                        &nbsp;&nbsp;
+                                    <button type="button" class="btn btn-primary" id="findzipbtn"><i class="bi bi-check"></i>선택하고 닫기</button>
+                                </div>
+
+                                <div class="form-group-row">
+                                    <hr class="col-9">
+                                    <p class="col-12 text-danger text-center">지역의 읍/면/동의 이름을 공백없이 입력하신 후, [검색하기] 버튼을 클릭하세요</p>
+                                    <select class="col-8 offset-2 form-control"
+                                            size="10" id="addrlist" name="addrlist">
+                                        <option>서울 강남구 개포동</option>
+                                        <option>서울 강남구 개포동</option>
+                                        <option>서울 강남구 개포동</option>
+                                        <option>서울 강남구 개포동</option>
+                                        <option>서울 강남구 개포동</option>
+                                        <option>서울 강남구 개포동</option>
+                                        <option>서울 강남구 개포동</option>
+                                        <option>서울 강남구 개포동</option>
+                                        <option>서울 강남구 개포동</option>
+                                        <option>서울 강남구 개포동</option>
+                                        <option>서울 강남구 개포동</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger">
+                                <i class="bi bi-check"></i>
+                                선택하고 닫기
+                            </button>
+                        </div>
+                    </div>
+               </div>
+            </div>
+
+            </div>
+            <footer class="row">
+                <h6 class="col bg-light text-right">Copyright &copy; Lorem Ipsum 2020. All right Reserved. Created by Bootstrap4</h6>
+        </footer>
+        </div>
+         <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    </body>
+</html>
