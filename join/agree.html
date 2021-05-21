@@ -103,7 +103,7 @@
             <ul class="navbar-nav nav-fill w-100 ">
                 <li class="nav-item"><a href="/index.html" class="nav-link">프로젝트소개</a></li>
                 <li class="nav-item active"><a class="nav-link">회원가입</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">게시판</a></li>
+                <li class="nav-item"><a href="/board/list.html" class="nav-link">게시판</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">자료실</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">갤러리</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">관리자</a></li>
@@ -305,7 +305,7 @@ Copyright © Kakao Corp. All rights reserved.
                         <input type="checkbox"id="agree1"
                                class="custom-control-input">
                         <label for="agree1"
-                               class="custom-control-label text-danger">이용약관에 동의합니다.</label>
+                               class="custom-control-label text-danger id=okagree1">이용약관에 동의합니다.</label>
                     </div>
                 </form>
             </div>
@@ -486,7 +486,7 @@ Copyright © Kakao Corp. All rights reserved.
                         <input type="checkbox"id="agree2"
                                class="custom-control-input">
                         <label for="agree2"
-                               class="custom-control-label text-danger">이용약관에 동의합니다.</label>
+                               class="custom-control-label text-danger id=okagree2">이용약관에 동의합니다.</label>
                     </div>
                 </form>
             </div>
@@ -497,7 +497,7 @@ Copyright © Kakao Corp. All rights reserved.
                 <div class="row">
                     <div class="col-4"></div>
                     <button type="button" id="agree" class="btn btn-success">모두 동의합니다.</button>
-                    <button type="button" id="disagree" class="btn btn-danger">동의하지 않습니다.</button>
+                    <button type="button" id="disagree" class="btn btn-danger" id="noagree">동의하지 않습니다.</button>
                 </div>
             </div>
 
@@ -509,6 +509,13 @@ Copyright © Kakao Corp. All rights reserved.
             <!-- jQuery and Bootstrap Bundle (includes Popper) -->
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+            <script>
 
+
+                $("#okagree").click(function() {
+                    if(!$('#okagree1').is(':checked') || $('#okagree2').is(':checked') == false)
+                })
+                $('#noagree').click(function() {location.href('/index.html')});
+        </script>
   </body>
 </html>

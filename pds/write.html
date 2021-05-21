@@ -19,8 +19,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-    <title>프로젝트소개</title>
+    <title>SemiProjectV2</title>
     </head>
     <body>
         <div class="container">
@@ -100,57 +101,111 @@
 
         <nav class="nav-bar navbar-expand navbar-dark bg-dark">
             <ul class="navbar-nav nav-fill w-100 ">
-                <li class="nav-item active"><a class="nav-link">프로젝트소개</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">프로젝트소개</a></li>
                 <li class="nav-item"><a href="/join/agree.html" class="nav-link">회원가입</a></li>
-                <li class="nav-item"><a href="/board/list.html" class="nav-link">게시판</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">게시판</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">자료실</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">갤러리</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">관리자</a></li>
             </ul>
         </nav>
         <div class="main" class="row">
-            <p class="display-1 text-center"><b>Semi Project V2</b></p>
-            <img src="/img/ProjectManagement.jpg" style="width: 50%;"
-                class="mx-auto d-block">
-            <p class="text-justify">
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-            </p>
-            <button type="button" class="mx-auto d-block btn-success">지금 바로 시작하기</button>
+            <h1><i class="bi bi-chat-fill"></i><b>자유 게시판</b></h1>
+            <hr>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="board col-4">
+                    <h3><i class="bi bi-plus-circle-fill"></i><b>새글 쓰기</b></h3>
+                </div>
+                <div class="board col-4 text-right">
+                    <button type="button" id="golist" name="golist">목록으로</button>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 card card-body bg-light">
+                    <form id="boardfrm" class="boardfrm">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group row">
+                                <label class="col-2 col-form-label text-danger
+                                              text-right"
+                                       for="title">제목</label>
+                                <input type="text" name="title" id="title"
+                                       class="border-danger form-control col-8">
+                                </div>
 
-            <div class="row">
-                <div class="col">
-                    <h3>1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut mi vel ante tempus faucibus semper id turpis. Aliquam erat volutpat. Donec et odio eget quam convallis viverra. Duis venenatis est odio, non accumsan nulla tincidunt id. Mauris non tellus sapien. Nam congue massa vel lectus molestie, rutrum luctus lorem tincidunt. Etiam dignissim ex euismod porta vestibulum. Duis semper molestie pharetra. Donec gravida nisi erat, ac auctor sem imperdiet et. </p>
-                    <button type="button">자세히 보기</button>
+                                <div class="form-group row">
+                                <label class="col-2 col-form-label text-danger
+                                              text-right"
+                                       for="writer">작성자</label>
+                                <input type="text" name="writer" id="writer"
+                                       class="border-danger form-control col-8
+                                              bg-light">
+                                </div>
+
+                                <div class="form-group row">
+                                <label class="col-2 col-form-label text-danger
+                                              text-right"
+                                       for="content">본문내용</label>
+                                <input type="text" name="content" id="content"
+                                       class="border-danger form-control col-8"
+                                       style="height: 500px;">
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-form-label col-2 text-right text-danger" for="file1">
+                                        파일첨부
+                                    </label>
+                                    <div class="custom-file col-9">
+                                        <input type="file" name="file" id="file1"
+                                               class="custom-file-input">
+                                        <label class="custom-file-label">첨부할 파일을 선택하세요</label>
+
+                                    </div>
+
+                                    <div class="custom-file col-9 offset-2">
+                                        <input type="file" name="file" id="file1"
+                                               class="custom-file-input">
+                                        <label class="custom-file-label">첨부할 파일을 선택하세요</label>
+
+                                    </div>
+
+                                    <div class="custom-file col-9 offset-2">
+                                        <input type="file" name="file" id="file1"
+                                               class="custom-file-input">
+                                        <label class="custom-file-label">첨부할 파일을 선택하세요</label>
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-2 col-form-label text-danger text-right"
+                                       for="capcha">자동<br>입력방지</label>
+                                    <img id="capcha" src="/img/google_recaptcha.gif"
+                                         width="40%">
+                                </div>
+
+                                <hr>
+
+                                <div class="form-group row">
+                                        <div class="col text-center">
+                                            <button type="button" id="submit" name="submit" class="btn btn-primary text-right">입력완료</button>
+                                            <button type="button" id="submit" name="submit" class="btn btn-danger text-right">취소하기</button>
+                                        </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
-                <div class="col">
-                    <h3>2</h3>
-                    <p>Donec a odio magna. Sed mollis tellus velit, a ullamcorper turpis tristique ut. Maecenas id pellentesque felis, non posuere ipsum. Morbi odio dui, eleifend a euismod vel, bibendum fermentum nisl. Praesent ac elementum elit, a bibendum quam. Suspendisse fringilla tincidunt sapien sed dapibus. Praesent lobortis tristique egestas. Aenean tincidunt, ligula vel cursus tempus, risus magna mattis erat, non tincidunt nulla neque eget risus. </p>
-                    <button type="button">자세히 보기</button>
-                </div>
-                <div class="col">
-                    <h3>3</h3>
-                    <p>Fusce vitae lacus mi. Aliquam neque neque, sagittis vitae malesuada sit amet, viverra ut ipsum. Maecenas ac pharetra nunc. Suspendisse vitae fringilla orci. Vivamus vel massa in nunc viverra tristique. Aenean aliquet justo in nisl posuere, sed pretium diam hendrerit. In laoreet velit ac magna porttitor congue. In hac habitasse platea dictumst. Cras placerat turpis leo, scelerisque ultricies nunc pretium vel.</p>
-                    <button type="button">자세히 보기</button>
-                </div>
+                <div class="col-2"></div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <h3>4</h3>
-                    <p>Fusce erat mauris, condimentum vel convallis eu, aliquam sit amet justo. Curabitur vitae nisi vitae tellus finibus commodo vitae sed elit. Aenean vel porta quam. Fusce condimentum, quam non condimentum posuere, ante ex tincidunt augue, vel vestibulum velit est id urna. Praesent interdum egestas elementum. In sed viverra neque, vel luctus dui. Maecenas diam tellus, lobortis porttitor finibus at, vestibulum quis augue. Curabitur a magna dapibus, suscipit sem quis, faucibus velit. </p>
-                    <button type="button">자세히 보기</button>
-                </div>
-                <div class="col">
-                    <h3>5</h3>
-                    <p>Duis et tortor quis elit ultricies elementum quis a urna. Cras congue vehicula mauris ac gravida. Aenean varius varius feugiat. Donec faucibus nunc ac placerat facilisis. Sed malesuada eget ligula cursus efficitur. Quisque dui orci, lacinia id aliquam sit amet, semper et nulla. Nulla massa nibh, vehicula a lobortis sed, semper sit amet urna.</p>
-                    <button type="button">자세히 보기</button>
-                </div>
-                <div class="col">
-                    <h3>6</h3>
-                    <p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque in feugiat sem. Vestibulum vitae ullamcorper orci, eu ornare mi. Donec eleifend id ex quis blandit. Maecenas sapien nunc, lobortis sed massa quis, porttitor convallis sem. Etiam metus lorem, eleifend ac nisi quis, euismod consequat arcu. Curabitur lacinia tellus eget quam iaculis tempor. Cras non ante eget nisi accumsan auctor. Morbi dignissim ante eget egestas dignissim.</p>
-                    <button type="button">자세히 보기</button>
-                </div>
-            </div>
+
+
+
         </div>
         <footer class="row">
                 <h6 class="col bg-light text-right">Copyright &copy; Lorem Ipsum 2020. All right Reserved. Created by Bootstrap4</h6>
