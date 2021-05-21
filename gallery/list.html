@@ -1,0 +1,362 @@
+<!--
+반응형 이미지
+이미지의 해상도(가로x세로 픽셀수)가 장치 디스플레이보다 큰 경우
+제대로 보이지 않는 상황 발생
+전체 이미지를보기 위해 스크롤바로 이리저리 움직여야 함
+
+이런 경우 이미지의 너비를 유동적으로 설정하면
+장치의 디스플레이 해상도에 맞춰 이미지를 출력함
+반응형 이미지로 설정하면 디스플레이 해상도보다 큰 이미지인 경우
+너비를 100%로 설정해서 출력하고 해상도 보다 작으면
+원래 이미지 크기로 출력함
+-->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <title>SemiProjectV2</title>
+      <style>
+          .pushright{ float: right; }
+          .cdwide { width: 238px; }
+          .imgsize { width: 220px; height: 220px;
+                     margin-left: 8px; cursor: pointer}
+          .pushdown { margin-right: 20px; margin-bottom: 20px; }
+          img { background: url(/img/isabella.png) no-repeat center;}
+      </style>
+    </head>
+    <body>
+        <div class="container">
+        <header class="row">
+            <h1 class="col">Lorem Ipsum</h1>
+
+            <div class="col text-right ">
+            <!-- Button trigger modal -->
+                <button type="button" class=" btn-danger" data-toggle="modal"   data-target="#loginModal">
+                로그인
+                </button>
+                <button type="button" class="btn-primary" id="joinbtn" name="joinbtn">회원가입</button>
+            </div>
+            <!-- Modal -->
+            <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="loginModalLabel">
+                                <b>로그인</b></h2>
+                            <button type="button" class="btn btn-close"
+                                                         data-bs-dismiss="modal"
+                                                         aria-label="Close">
+                                닫기
+                                <!--<span aria-hidden="true">&times;</span>-->
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form name="loginfrm"
+                                      id="loginfrm" method="post">
+                                <div class="form-group row text-danger">
+
+                                    <label class="col-form-label col-4 text-right" for="userid">
+                                    아이디</label>
+                                    <input type="text"
+                                           id="userid" name="userid"
+                                           class="form-control col-5
+                                                  border-danger">
+
+                                </div>
+
+                                <div class="form-group row text-danger">
+                                    <label class="col-form-label col-4 text-right" for="userid">
+                                    비밀번호</label>
+                                    <input type="text"
+                                           id="userid" name="userid"
+                                           class="form-control col-5
+                                                  border-danger">
+                                </div>
+
+                                <div class="form-group row text-warning">
+                                    <div class="col-4"></div>
+                                    <div class="form-check">
+                                        <input type="checkbox"
+                                               class="form-check-input">
+                                        <label class="form-check-label">
+                                            로그인 상태 유지</label>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer row">
+                            <div class="col-2"></div>
+                            <div class="col-">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">로그인</button>
+                                <button type="button" class="btn btn-warning ">아이디/비밀번호 찾기</button>
+                            </div>
+                            <div class="col-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="clearfix"></div>
+
+        <nav class="nav-bar navbar-expand navbar-dark bg-dark">
+            <ul class="navbar-nav nav-fill w-100 ">
+                <li class="nav-item"><a href="/index.html" class="nav-link">프로젝트소개</a></li>
+                <li class="nav-item"><a href="/join/agree.html" class="nav-link">회원가입</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">게시판</a></li>
+                <li class="nav-item"><a href="#" class="nav-link-active">자료실</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">갤러리</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">관리자</a></li>
+            </ul>
+        </nav>
+        <div class="main">
+
+            <div>
+                <h1><i class="bi bi-chat-fill"></i><b>자료실</b></h1>
+                <hr>
+            </div>
+
+            <!-- 검색창 및 새글 쓰기 버튼 -->
+            <div class="row">
+                    <div class="col-8 offset-1">
+                        <div class="form-group row">
+                            <select class="form-control col-2 border-primary" id="findtype" name="findtype">
+                                <option>제목</option>
+                                <option>제목+내용</option>
+                                <option>작성자</option>
+                                <option>내용</option>
+                            </select>
+                            &nbsp;
+                            <input type="text" name="findkey" id="findkey" class="form-control col-4 border-primary">
+                            &nbsp;
+                            <button class="btn btn-primary" type="button" id="findbtn" name="findbtn">검색</button>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-2 text-right">
+                            <button type="button" class="btn btn-primary" id="newbdbtn">새글쓰기</button>
+
+                    </div>
+            </div>
+
+            <!-- 게시판 테이블 -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <ul class="list-inline">
+                        <li class="list-inline-item pushdown">
+                            <div class="card cdwide">
+                                <img class="imgsize card-img-top img-fluid"
+                                     onclick="showimg();">
+                                <div class="card-body">
+                                    <h5 class="card-title">abcabc</h5>
+                                    <p class="card-text">xyzxyz
+                                    <span class="pushright">2021.05.21</span>
+                                    </p>
+                                    <p class="card-text">
+                                        <i class="bi bi-eye"></i> 12345
+                                        <span class="pushright">
+                                            <i class="bi bi-hand-thumbs-up"></i> 987
+                                        </span>
+                                    </p>
+                                </div>
+
+
+                            </div>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <div class="card cdwide">
+                                <img class="imgsize card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">abcabc</h5>
+                                    <p class="card-text">xyzxyz
+                                    <span class="pushright">2021.05.21</span>
+                                    </p>
+                                    <p class="card-text">
+                                        <i class="bi bi-eye"></i> 12345
+                                        <span class="pushright">
+                                            <i class="bi bi-hand-thumbs-up"></i> 987
+                                        </span>
+                                    </p>
+                                </div>
+
+
+                            </div>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <div class="card cdwide">
+                                <img class="imgsize card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">abcabc</h5>
+                                    <p class="card-text">xyzxyz
+                                    <span class="pushright">2021.05.21</span>
+                                    </p>
+                                    <p class="card-text">
+                                        <i class="bi bi-eye"></i> 12345
+                                        <span class="pushright">
+                                            <i class="bi bi-hand-thumbs-up"></i> 987
+                                        </span>
+                                    </p>
+                                </div>
+
+
+                            </div>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <div class="card cdwide">
+                                <img class="imgsize card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">abcabc</h5>
+                                    <p class="card-text">xyzxyz
+                                    <span class="pushright">2021.05.21</span>
+                                    </p>
+                                    <p class="card-text">
+                                        <i class="bi bi-eye"></i> 12345
+                                        <span class="pushright">
+                                            <i class="bi bi-hand-thumbs-up"></i> 987
+                                        </span>
+                                    </p>
+                                </div>
+
+
+                            </div>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <div class="card cdwide">
+                                <img class="imgsize card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">abcabc</h5>
+                                    <p class="card-text">xyzxyz
+                                    <span class="pushright">2021.05.21</span>
+                                    </p>
+                                    <p class="card-text">
+                                        <i class="bi bi-eye"></i> 12345
+                                        <span class="pushright">
+                                            <i class="bi bi-hand-thumbs-up"></i> 987
+                                        </span>
+                                    </p>
+                                </div>
+
+
+                            </div>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <div class="card cdwide">
+                                <img class="imgsize card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">abcabc</h5>
+                                    <p class="card-text">xyzxyz
+                                    <span class="pushright">2021.05.21</span>
+                                    </p>
+                                    <p class="card-text">
+                                        <i class="bi bi-eye"></i> 12345
+                                        <span class="pushright">
+                                            <i class="bi bi-hand-thumbs-up"></i> 987
+                                        </span>
+                                    </p>
+                                </div>
+
+
+                            </div>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <div class="card cdwide">
+                                <img class="imgsize card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">abcabc</h5>
+                                    <p class="card-text">xyzxyz
+                                    <span class="pushright">2021.05.21</span>
+                                    </p>
+                                    <p class="card-text">
+                                        <i class="bi bi-eye"></i> 12345
+                                        <span class="pushright">
+                                            <i class="bi bi-hand-thumbs-up"></i> 987
+                                        </span>
+                                    </p>
+                                </div>
+
+
+                            </div>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <div class="card cdwide">
+                                <img class="imgsize card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">abcabc</h5>
+                                    <p class="card-text">xyzxyz
+                                    <span class="pushright">2021.05.21</span>
+                                    </p>
+                                    <p class="card-text">
+                                        <i class="bi bi-eye"></i> 12345
+                                        <span class="pushright">
+                                            <i class="bi bi-hand-thumbs-up"></i> 987
+                                        </span>
+                                    </p>
+                                </div>
+
+
+                            </div>
+                        </li>
+
+
+
+
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 페이지 쪽수 표현 (페이지네이션) -->
+            <div class="row">
+                <div class="col-12">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a href="#" class="page-link">이전</a></li>
+                        <li class="page-item"><a href="#" class="page-link">1</a></li>
+                        <li class="page-item"><a href="#" class="page-link">2</a></li>
+                        <li class="page-item"><a href="#" class="page-link">3</a></li>
+                        <li class="page-item"><a href="#" class="page-link">4</a></li>
+                        <li class="page-item"><a href="#" class="page-link">5</a></li>
+                        <li class="page-item"><a href="#" class="page-link">6</a></li>
+                        <li class="page-item"><a href="#" class="page-link">7</a></li>
+                        <li class="page-item"><a href="#" class="page-link">8</a></li>
+                        <li class="page-item"><a href="#" class="page-link">9</a></li>
+                        <li class="page-item"><a href="#" class="page-link">다음</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <footer class="row">
+                <h6 class="col bg-light text-right">Copyright &copy; Lorem Ipsum 2020. All right Reserved. Created by Bootstrap4</h6>
+        </footer>
+    </div>
+            <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        <script>
+            $('#newbdbtn').click(function() { location.href = 'write.html'; })
+            $('#joinbtn').click(function() { location.href = '/join/agree.html'})
+
+
+        function showimg() {
+            location.href='view.html';
+            }
+        </script>
+  </body>
+</html>
